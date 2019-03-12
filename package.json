@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Normalizing a JSON:API styled server response",
   "main": "dist/index.js",
-  "types" : "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
