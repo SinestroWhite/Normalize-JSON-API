@@ -20,7 +20,7 @@ export interface Result {
  * @throws {Error} A data relationship item does not contain type field.
  * @return {Object} result - Normalized response from server
  */
-export function normalize(response: any) {
+export default function normalize(response: any) {
     // Validating data field from the server response
     validate(response);
 
