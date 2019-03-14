@@ -1,5 +1,5 @@
 {
-  "name": "normalize-json-api",
+  "name": "normalize-json-api-response",
   "version": "1.0.0",
   "description": "Normalizing a JSON:API styled server response",
   "main": "dist/index.js",
@@ -14,12 +14,29 @@
   "keywords": [
     "normalize",
     "json:api",
+    "jsonapi",
+    "json-api",
     "json",
-    "api"
+    "api",
+    "vue",
+    "angular",
+    "react",
+    "normalize-json-api",
+    "json-api-normalize",
+    "normalize",
+    "json api typescript",
+    "json-api-typescript",
+    "jsonapi-typescript",
+    "json-api",
+    "data converter",
+    "data formatter",
+    "convertor",
+    "formatter"
   ],
   "author": "Sinestro White",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^3.3.3333"
-  }
+  },
+  "dependencies": {}
 }
