@@ -96,18 +96,14 @@ Normalize JSON:API Response (NJAR) solves the problem with the JSON:API response
     //       "attributes": {
     //         "title": "JSON:API paints my bikeshed!"
     //       },
-    //       "relationships": {
-    //         "people": [
-    //           {
-    //             "type": "people",
-    //             "id": "9",
-    //             "attributes": {
-    //               "firstName": "Dan",
-    //               "lastName": "Gebhardt",
-    //               "twitter": "dgeb"
-    //             }
-    //           }
-    //         ]
+    //       "people": {
+    //         "type": "people",
+    //         "id": "9",
+    //         "attributes": {
+    //           "firstName": "Dan",
+    //           "lastName": "Gebhardt",
+    //           "twitter": "dgeb"
+    //         }
     //       }
     //     }
     //   ]

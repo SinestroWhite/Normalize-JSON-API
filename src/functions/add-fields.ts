@@ -1,3 +1,4 @@
+
 /**
  * Adding included items in the normalized result
  *
@@ -5,7 +6,6 @@
  * @throws {Error} An included item does not contain type field.
  * @return {Object} result - Included items grouped by their type
  */
-
 export function addFields(response: any) {
     // Creating a variable for the result
     const result: any = {};
