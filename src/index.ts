@@ -40,10 +40,6 @@ export default function normalize(response: any) {
         result[type].push({ ...item });
         // Creating a variable to shorten the object path
         const reference = result[type][result[type].length - 1];
-        // Removing unnecessary type field
-        delete reference.type;
-        // Creating relationships in the result
-        reference.relationships = {};
         // Using a for loop to go through all relationships of every item in data
         for (const key of Object.keys(item.relationships)) {
             const relation = item.relationships[key];
@@ -54,19 +50,23 @@ export default function normalize(response: any) {
                     throw new Error('[Normalize] ' +
                         '[JSON:API Syntax Error] A data relationship item does not contain type field!');
                 }
-                reference.relationships[relation.data[0].type] = [];
+                reference[relation.data[0].type] = [];
                 for (const temp of relation.data) {
                     // Adding all found results
-                    reference.relationships[relation.data[0].type] = [
-                        ...reference.relationships[relation.data[0].type],
+                    reference[relation.data[0].type] = [
+                        ...reference[relation.data[0].type],
                         ...findItems(response, temp),
                     ];
                 }
             } else if (relation.data.constructor === Object) {
                 // Adding all found results
-                reference.relationships[relation.data.type] = findItems(response, relation.data);
+                reference[relation.data.type] = findItems(response, relation.data)[0];
             }
         }
+        // Removing unnecessary type field
+        delete reference.type;
+        // Removing unnecessary relationships field
+        delete reference.relationships;
 
     }
     return result;
