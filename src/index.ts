@@ -21,6 +21,9 @@ export interface Result {
  * @return {Object} result - Normalized response from server
  */
 export default function normalize(response: any) {
+    //Checking if the response is empty
+    if (response.length === 0) { return {}; }
+    if (response.data.length === 0) { return { data: [] }; }
     // Validating data field from the server response
     validate(response);
 
