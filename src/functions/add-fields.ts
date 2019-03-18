@@ -15,7 +15,7 @@ export function addFields(response: any) {
         for (const item of response.included) {
             // Checking if an included item has type field
             if (!item.hasOwnProperty('type')) {
-                throw new Error('[Normalize] [JSON:API Syntax Error] An included item does not contain type field!');
+                throw '[Normalize] [JSON:API Syntax Error] An included item does not contain type field!';
             }
             // Checking if the result has property the type of the item
             if (!result.hasOwnProperty(item.type)) {

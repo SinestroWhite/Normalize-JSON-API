@@ -11,11 +11,11 @@
 export function findItems(response: any, temp: any) {
     // Checking if temp has type field
     if (!temp.hasOwnProperty('type')) {
-        throw new Error('[Normalize] [JSON:API Syntax Error] A data relationship item does not contain type field!');
+        throw '[Normalize] [JSON:API Syntax Error] A data relationship item does not contain type field!';
     }
     // Checking if temp has id field
     if (!temp.hasOwnProperty('id')) {
-        throw new Error('[Normalize] [JSON:API Syntax Error] A data relationship item does not contain id field!');
+        throw '[Normalize] [JSON:API Syntax Error] A data relationship item does not contain id field!';
     }
     const result = [];
     // Adding all found results

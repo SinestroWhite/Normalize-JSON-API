@@ -11,11 +11,12 @@
 export function validate(response: any) {
     // Checking if there is data filed in the response
     if (!response.hasOwnProperty('data')) {
-        throw new Error('[Normalize] [JSON:API Syntax Error] A data field does not exist!');
+        throw '[Normalize] [JSON:API Syntax Error] A data field does not exist!';
     }
+    if (response.data.length === 0) { return true; }
     // Checking the type of data
     if ((response.data.constructor !== Object) && (response.data.constructor !== Array)) {
-        throw new Error('[Normalize] [JSON:API Syntax Error] The data field must be an object or array!');
+        throw '[Normalize] [JSON:API Syntax Error] The data field must be an object or array!';
     }
     // Checking if data is an array of objects
     if (response.data.constructor === Object) {
@@ -23,18 +24,19 @@ export function validate(response: any) {
     }
     // Checking if the first item has type field
     if (!response.data[0].hasOwnProperty('type')) {
-        throw new Error('[Normalize] [JSON:API Syntax Error] A data item does not contain type field!');
+        throw '[Normalize] [JSON:API Syntax Error] A data item does not contain type field!';
     }
     // Getting the type of the first element
     const type = response.data[0].type;
     for (const item of response.data) {
         // Checking if an data item has type field
         if (!item.hasOwnProperty('type')) {
-            throw new Error('[Normalize] [JSON:API Syntax Error] A data item does not contain type field!');
+            throw '[Normalize] [JSON:API Syntax Error] A data item does not contain type field!';
         }
         // Checking if the current item has the same type as the first
         if (item.type !== type) {
-            throw new Error('[Normalize] [JSON:API Syntax Error] Not all data items are the same type!');
+            throw '[Normalize] [JSON:API Syntax Error] Not all data items are the same type!';
         }
     }
+    return false;
 }

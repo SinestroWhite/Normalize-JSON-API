@@ -23,10 +23,11 @@ export interface Result {
 export default function normalize(response: any) {
     //Checking if the response is empty
     if (response.length === 0) { return {}; }
-    if (response.data.length === 0) { return { data: [] }; }
     // Validating data field from the server response
-    validate(response);
-
+    if (validate(response)) {
+        return { data: [] };
+    }
+    // Creating a variable for the result
     let result: Result;
 
     // Adding included items in the normalized result
@@ -50,8 +51,7 @@ export default function normalize(response: any) {
             if (relation.data.constructor === Array) {
                 // Checking if a data relationship item has type field
                 if (!relation.data[0].hasOwnProperty('type')) {
-                    throw new Error('[Normalize] ' +
-                        '[JSON:API Syntax Error] A data relationship item does not contain type field!');
+                    throw '[Normalize] [JSON:API Syntax Error] A data relationship item does not contain type field!';
                 }
                 reference[relation.data[0].type] = [];
                 for (const temp of relation.data) {
