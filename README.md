@@ -13,9 +13,9 @@
 ## Features
 
 - **Easy installation and integration** - No complicated actions
+- **Front-end design friendly** - Makes response data easy to display with a for-loop
 - **JSON:API simplification**
 - **No need to correct the normalized response**
-- **Front-end design friendly** - Makes response data easy to display with a for-loop
 - **No schema required**
 - **No dependencies** 👌
 
