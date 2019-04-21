@@ -20,7 +20,7 @@ export function findItems(response: any, temp: any) {
     const result = [];
     // Adding all found results
     result.push(
-        response.included.find((item: any) => (Number(item.id) === Number(temp.id)) &&
+        response.included.find((item: any) => (String(item.id) === String(temp.id)) &&
             (String(item.type) === String(temp.type))),
     );
     return result;
