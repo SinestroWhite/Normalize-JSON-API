@@ -6,7 +6,7 @@
 [![npm downloads](https://img.shields.io/npm/dt/normalize-json-api-response.svg)](https://www.npmjs.com/package/normalize-json-api-response)
 [![license](https://img.shields.io/npm/l/normalize-json-api-response.svg)](https://github.com/SinestroWhite/Normalize-JSON-API/blob/master/LICENSE)
 
-> *Normalize JSON:API Response (NJAR) is not only designed to simplify JSON:API responses but also to make them easy developer friendly.*
+> *Normalize JSON:API Response (NJAR) is not only designed to simplify JSON:API responses but also to make them developer friendly.*
 >
 > *Created by Sinestro White with :heart: !*
 
