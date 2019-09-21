@@ -47,6 +47,12 @@ export default function normalize(response: any) {
         // Using a for loop to go through all relationships of every item in data
         for (const key of Object.keys(item.relationships)) {
             const relation = item.relationships[key];
+
+            // Skip if relationship is not present
+            if (!relation.data) {
+                continue;
+            }
+
             // Checking if there is only one relationship stored in an object
             if (relation.data.constructor === Array) {
                 // Checking if a data relationship item has type field
