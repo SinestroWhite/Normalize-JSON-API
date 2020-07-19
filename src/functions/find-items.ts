@@ -18,10 +18,14 @@ export function findItems(response: any, temp: any) {
         throw '[Normalize] [JSON:API Syntax Error] A data relationship item does not contain id field!';
     }
     const result = [];
-    // Adding all found results
-    result.push(
-        response.included.find((item: any) => (String(item.id) === String(temp.id)) &&
-            (String(item.type) === String(temp.type))),
-    );
+
+    // If response has a 'included' property then look for results
+    if (response.hasOwnProperty('included')) {
+        // Adding all found results
+        result.push(
+            response.included.find((item: any) => (String(item.id) === String(temp.id)) &&
+                (String(item.type) === String(temp.type))),
+        );
+    }
     return result;
 }
