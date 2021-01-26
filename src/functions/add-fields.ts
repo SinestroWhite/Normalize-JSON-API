@@ -22,6 +22,7 @@ export function addFields(response: any) {
                 result[item.type] = [];
             }
             // Adding the item according to it's type
+            console.log(item);
             result[item.type].push({ ...item });
             // Deleting unnecessary type filed in the result
             delete result[item.type][result[item.type].length - 1].type;
